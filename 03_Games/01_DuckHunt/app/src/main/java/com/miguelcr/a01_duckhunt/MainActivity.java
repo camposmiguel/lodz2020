@@ -10,7 +10,7 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     EditText etNick;
-    Button btnStart;
+    Button btnStart, btnRanking;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,9 +19,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         etNick = findViewById(R.id.editTextNick);
         btnStart = findViewById(R.id.buttonStart);
+        btnRanking = findViewById(R.id.buttonRanking);
 
         // Click
         btnStart.setOnClickListener(this);
+
+        btnRanking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, RankingActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     @Override
